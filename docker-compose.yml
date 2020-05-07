@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  server:
+    image: server:latest
+    restart: always
+    build:
+      contest: ./server
+    depends_on:
+      - db
+    environment:
+      MONGO_CONNECTION_STRING: mongodb://db:27017
+
+  db:
+    restart: always
+    image: "mongo"
+    volumes:
+      - type: bind
+        source: /var/quote-db
+        target: /data/db
+
+  client:
+    image: client:latest
+    build:
+      context: ./client
+    depends_on:
+      - server
+    ports:
+      - "3000:3000"
+    environment:
+      REACT_APP_BASE_URL: server:8080

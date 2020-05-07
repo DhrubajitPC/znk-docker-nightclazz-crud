@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 
-const conn = mongoose.connect("mongodb://localhost/quotedb", {
+const connStr =
+  process.env.MONGO_CONNECTION_STRING || "mongodb://localhost/quotedb";
+const conn = mongoose.connect(connStr, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
