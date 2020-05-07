@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Context } from "./Context";
 import styles from "./quotelist.module.css";
 import { Quote } from "./types";
+import { baseUrl } from "../api";
 
 const QuoteList: FC = () => {
   const { quotes } = useContext(Context);
@@ -59,7 +60,7 @@ const QuoteItem: FC<{ quote: Quote }> = ({ quote }) => {
   );
 
   async function handleDelete() {
-    await fetch(`http://localhost:8080/${quote._id}`, { method: "DELETE" });
+    await fetch(`${baseUrl}/${quote._id}`, { method: "DELETE" });
     refreshState();
   }
 };

@@ -1,15 +1,13 @@
 const express = require("express");
-const cors = require("cors");
 const app = express();
 const bodyParser = require("body-parser");
 const model = require("./models");
 
 const port = 8080;
-app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/", async (req, res) => {
+app.get("/api/", async (req, res) => {
   console.log("fetching quotes");
   try {
     const quotes = await model.find();
@@ -19,7 +17,7 @@ app.get("/", async (req, res) => {
   }
 });
 
-app.post("/new", async (req, res) => {
+app.post("/api/new", async (req, res) => {
   console.log("creating a new quote");
   const { author, body } = req.body;
   try {
@@ -30,7 +28,7 @@ app.post("/new", async (req, res) => {
   }
 });
 
-app.delete("/:id", async (req, res) => {
+app.delete("/api/:id", async (req, res) => {
   const id = req.params.id;
   console.log(`deleting quote with id ${id}`);
   try {
@@ -41,7 +39,7 @@ app.delete("/:id", async (req, res) => {
   }
 });
 
-app.put("/:id", async (req, res) => {
+app.put("/api/:id", async (req, res) => {
   const id = req.params.id;
   const { author, body } = req.body;
   console.log(`updating quote with id ${id}`);

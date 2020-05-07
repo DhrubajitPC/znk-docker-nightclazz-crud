@@ -16,7 +16,7 @@ const ContextWrapper: FC = ({ children }) => {
   }, []);
 
   const refreshState = () => {
-    fetch(`${baseUrl}`)
+    fetch(`${baseUrl}/`)
       .then((data) => data.json())
       .then((data) => {
         setQuotes(data);

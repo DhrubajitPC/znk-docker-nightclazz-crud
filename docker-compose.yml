@@ -1,11 +1,11 @@
-version: "3.8"
+version: "3.3"
 
 services:
   server:
     image: server:latest
     restart: always
     build:
-      contest: ./server
+      context: ./server
     depends_on:
       - db
     environment:
@@ -14,10 +14,6 @@ services:
   db:
     restart: always
     image: "mongo"
-    volumes:
-      - type: bind
-        source: /var/quote-db
-        target: /data/db
 
   client:
     image: client:latest
@@ -28,4 +24,4 @@ services:
     ports:
       - "3000:3000"
     environment:
-      REACT_APP_BASE_URL: server:8080
+      BASE_URL: http://server:8080
