@@ -1,0 +1,47 @@
+.list {
+  width: 80%;
+}
+
+.container {
+  width: 100%;
+  background-color: bisque;
+  min-height: 30px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.header {
+  padding: 5px 15px;
+  color: darkgrey;
+  border-bottom: darkgrey solid 1px;
+  display: flex;
+}
+
+.header > a:visited {
+  color: darkgrey;
+}
+
+.header > a {
+  color: darkgrey;
+}
+
+.footer {
+  padding: 5px;
+}
+.footer > ul {
+  list-style: none;
+}
+.delete {
+  width: 13px;
+  display: flex;
+  cursor: pointer;
+  margin-left: auto;
+}
+.btn {
+  padding: 10px;
+  border-radius: 3px;
+  margin: 20px 0;
+  box-shadow: none;
+  background-color: whitesmoke;
+  border: blanchedalmond;
+}

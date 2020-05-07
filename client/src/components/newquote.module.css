@@ -1,0 +1,22 @@
+.container {
+  width: 50%;
+  background-color: bisque;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.container > form {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  padding: 10px;
+  border-radius: 3px;
+  margin: 20px 0;
+  box-shadow: none;
+  background-color: whitesmoke;
+  border: blanchedalmond;
+}
