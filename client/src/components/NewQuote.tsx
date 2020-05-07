@@ -2,6 +2,7 @@ import React, { FC, FormEvent, useContext, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { Context } from "./Context";
 import styles from "./newquote.module.css";
+import { baseUrl } from "../api";
 
 const NewQuote: FC = () => {
   const history = useHistory();
@@ -39,7 +40,7 @@ const NewQuote: FC = () => {
       alert("needs a body");
     } else {
       if (!_id) {
-        await fetch("http://localhost:8080/new", {
+        await fetch(`${baseUrl}/new`, {
           method: "POST",
           mode: "cors",
           headers: {
@@ -51,7 +52,7 @@ const NewQuote: FC = () => {
           }),
         });
       } else {
-        await fetch(`http://localhost:8080/${_id}`, {
+        await fetch(`${baseUrl}/${_id}`, {
           method: "PUT",
           mode: "cors",
           headers: {

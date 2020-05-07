@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
 import { Quote } from "./types";
+import { baseUrl } from "../api";
 
 type Context = {
   refreshState: () => void;
@@ -15,7 +16,7 @@ const ContextWrapper: FC = ({ children }) => {
   }, []);
 
   const refreshState = () => {
-    fetch("http://localhost:8080/")
+    fetch(`${baseUrl}`)
       .then((data) => data.json())
       .then((data) => {
         setQuotes(data);
